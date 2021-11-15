@@ -1,13 +1,13 @@
-pragma solidity 0.6.12;
+pragma solidity ^0.8.4;
 
-import "./Ownable.sol";
-import "./Pausable.sol";
-import "./AggregatorV3Interface.sol";
-import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol";
+import "./abstracts/DeHubPricePredictionUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
+import "./interfaces/AggregatorV3Interface.sol";
 
-contract PricePrediction is Ownable, Pausable {
-    using SafeMath for uint256;
-    using SafeBEP20 for IBEP20;
+contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
+    using SafeMathUpgradeable for uint256;
+    using SafeERC20Upgradeable for IERC20Upgradeable;
+    using AddressUpgradeable for address;
 
     struct Round {
         uint256 epoch;
@@ -46,15 +46,15 @@ contract PricePrediction is Ownable, Pausable {
     uint256 public oracleLatestRoundId;
 
     uint256 public constant TOTAL_RATE = 100; // 100%
-    uint256 public rewardRate = 90; // 90%
-    uint256 public treasuryRate = 10; // 10%
+    uint256 public rewardRate;
+    uint256 public treasuryRate;
     uint256 public minBetAmount;
     uint256 public oracleUpdateAllowance; // seconds
 
-    bool public genesisStartOnce = false;
-    bool public genesisLockOnce = false;
+    bool public genesisStartOnce;
+    bool public genesisLockOnce;
 
-    IBEP20 public reserveToken;
+    IERC20Upgradeable public reserveToken;
 
     event StartRound(uint256 indexed epoch, uint256 blockNumber);
     event LockRound(uint256 indexed epoch, uint256 blockNumber, int256 price);
@@ -74,24 +74,31 @@ contract PricePrediction is Ownable, Pausable {
     event Pause(uint256 epoch);
     event Unpause(uint256 epoch);
 
-    constructor(
-        AggregatorV3Interface _oracle,
-        address _adminAddress,
-        address _operatorAddress,
-        uint256 _intervalBlocks,
-        uint256 _bufferBlocks,
-        uint256 _minBetAmount,
-        uint256 _oracleUpdateAllowance,
-        address _reserveToken
-    ) public {
-        oracle = _oracle;
-        adminAddress = _adminAddress;
-        operatorAddress = _operatorAddress;
-        intervalBlocks = _intervalBlocks;
-        bufferBlocks = _bufferBlocks;
-        minBetAmount = _minBetAmount;
-        oracleUpdateAllowance = _oracleUpdateAllowance;
-        reserveToken = IBEP20(_reserveToken);
+    function __PricePrediction_init(
+      AggregatorV3Interface _oracle,
+      address _adminAddress,
+      address _operatorAddress,
+      uint256 _intervalBlocks,
+      uint256 _bufferBlocks,
+      uint256 _minBetAmount,
+      uint256 _oracleUpdateAllowance,
+      IERC20Upgradeable _reserveToken
+    ) public initializer {
+      DeHubPricePredictionUpgradeable.initialize();
+
+			rewardRate = 90; // 90%
+    	treasuryRate = 10; // 10%
+			genesisStartOnce = false;
+    	genesisLockOnce = false;
+
+      oracle = _oracle;
+      adminAddress = _adminAddress;
+      operatorAddress = _operatorAddress;
+      intervalBlocks = _intervalBlocks;
+      bufferBlocks = _bufferBlocks;
+      minBetAmount = _minBetAmount;
+      oracleUpdateAllowance = _oracleUpdateAllowance;
+      reserveToken = _reserveToken;
     }
 
     modifier onlyAdmin() {
@@ -110,10 +117,9 @@ contract PricePrediction is Ownable, Pausable {
     }
 
     modifier notContract() {
-        require(!_isContract(msg.sender), "contract not allowed");
-        require(msg.sender == tx.origin, "proxy contract not allowed");
-        _;
-    }
+			require(!msg.sender.isContract(), "Contract not allowed");
+			_;
+		}
 
     /**
      * @dev set admin address
@@ -254,7 +260,7 @@ contract PricePrediction is Ownable, Pausable {
     /**
      * @dev Bet bear position
      */
-    function betBear(uint256 _amount) external payable whenNotPaused notContract {
+    function betBear(uint256 _amount) external payable whenNotPaused nonReentrant notContract {
         require(_bettable(currentEpoch), "Round not bettable");
         require(reserveToken.balanceOf(msg.sender) >= _amount, "Insufficient balance of reserveToken");
         require(_amount >= minBetAmount, "Bet amount must be greater than minBetAmount");
@@ -280,7 +286,7 @@ contract PricePrediction is Ownable, Pausable {
     /**
      * @dev Bet bull position
      */
-    function betBull(uint256 _amount) external payable whenNotPaused notContract {
+    function betBull(uint256 _amount) external payable whenNotPaused nonReentrant notContract {
         require(_bettable(currentEpoch), "Round not bettable");
         require(reserveToken.balanceOf(msg.sender) >= _amount, "Insufficient balance of reserveToken");
         require(_amount >= minBetAmount, "Bet amount must be greater than minBetAmount");
