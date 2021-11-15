@@ -11,14 +11,10 @@
 		"fork:mainnet": "npx hardhat node --fork $(dotenv -p MORALIS_BSC_MAINNET_ARCHIVE_URL) --fork-block-number 11134446",
 		"console:local": "npx hardhat console --network localhost",
 		"console:testnet": "npx hardhat console --network testnet",
-		"deploy:local": "npx hardhat run --network localhost scripts/local-deploy.ts",
-		"deploy:testnet": "npx hardhat run --network testnet scripts/testnet-deploy.ts",
-		"deploy:mainnet": "npx hardhat run --network mainnet scripts/mainnet-deploy.ts",
-		"verify:testnet": "npx hardhat verify --network testnet ",
-		"verify:mainnet": "npx hardhat verify --network mainnet ",
-		"up:local": "npx hardhat run --network localhost scripts/local-upgrade.ts",
-		"up:testnet": "npx hardhat run --network testnet scripts/testnet-upgrade.ts",
-		"up:mainnet": "npx hardhat run --network mainnet scripts/mainnet-upgrade.ts"
+		"deploy:testnet": "npx hardhat run scripts/deploy.ts --network testnet",
+		"deploy:mainnet": "npx hardhat run scripts/deploy.ts --network mainnet",
+		"upgrade:testnet": "npx hardhat run scripts/deploy-upgrade.ts --network testnet",
+		"upgrade:mainnet": "npx hardhat run scripts/deploy-upgrade.ts --network mainnet"
 	},
 	"author": "",
 	"license": "ISC",
