@@ -1,4 +1,17 @@
 node_modules
-Artifacts
+.env
 
-.idea
+#Hardhat files
+cache
+artifacts
+
+.DS_Store
+
+/data
+/secrets.json
+/dehub-randomness.code-workspace
+/.vscode
+
+# Openzeppelin
+# https://docs.openzeppelin.com/upgrades-plugins/1.x/network-files
+.openzeppelin/unknown-31337.json
