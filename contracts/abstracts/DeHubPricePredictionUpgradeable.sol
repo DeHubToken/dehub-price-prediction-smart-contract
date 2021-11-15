@@ -14,30 +14,30 @@ import "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
 
 abstract contract DeHubPricePredictionUpgradeable is
-	Initializable,
-	OwnableUpgradeable,
-	ReentrancyGuardUpgradeable,
-	PausableUpgradeable,
-	UUPSUpgradeable
+  Initializable,
+  OwnableUpgradeable,
+  ReentrancyGuardUpgradeable,
+  PausableUpgradeable,
+  UUPSUpgradeable
 {
-	using SafeERC20Upgradeable for IERC20Upgradeable;
-	using AddressUpgradeable for address;
+  using SafeERC20Upgradeable for IERC20Upgradeable;
+  using AddressUpgradeable for address;
 
-	uint public version;
+  uint256 public version;
 
-	/// @custom:oz-upgrades-unsafe-allow constructor
-	function initialize() public initializer {
-		__Ownable_init();
-		__ReentrancyGuard_init();
-		__Pausable_init();
-		__UUPSUpgradeable_init();
-		version = 1;
-		console.log('v', version);
-	}
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  function initialize() public initializer {
+    __Ownable_init();
+    __ReentrancyGuard_init();
+    __Pausable_init();
+    __UUPSUpgradeable_init();
+    version = 1;
+    console.log("v", version);
+  }
 
-	function _authorizeUpgrade(address newImplementation)
-		internal
-		onlyOwner
-		override
-	{}
+  function _authorizeUpgrade(address newImplementation)
+    internal
+    override
+    onlyOwner
+  {}
 }
