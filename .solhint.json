@@ -5,6 +5,7 @@
     "func-visibility": ["warn", { "ignoreConstructors": true }],
     "max-states-count": "off",
     "func-name-mixedcase": "off",
-    "not-rely-on-time": "off"
+    "not-rely-on-time": "off",
+    "reason-string": ["off"]
   }
 }
