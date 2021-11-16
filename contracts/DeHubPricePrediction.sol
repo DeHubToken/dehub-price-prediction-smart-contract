@@ -1,78 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import "./abstracts/DeHubPricePredictionUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "hardhat/console.sol";
+import "./interfaces/AggregatorV3Interface.sol";
 
-interface AggregatorV3Interface {
-  function decimals() external view returns (uint8);
-
-  function description() external view returns (string memory);
-
-  function version() external view returns (uint256);
-
-  // getRoundData and latestRoundData should both raise "No data present"
-  // if they do not have data to report, instead of returning unset values
-  // which could be misinterpreted as actual reported values.
-  function getRoundData(uint80 _roundId)
-    external
-    view
-    returns (
-      uint80 roundId,
-      int256 answer,
-      uint256 startedAt,
-      uint256 updatedAt,
-      uint80 answeredInRound
-    );
-
-  function latestRoundData(bool isLock)
-    external
-    view
-    returns (
-      uint80 roundId,
-      int256 answer,
-      uint256 startedAt,
-      uint256 updatedAt,
-      uint80 answeredInRound
-    );
-}
-
-abstract contract DeHubPricePredictionUpgradeable is
-  Initializable,
-  OwnableUpgradeable,
-  ReentrancyGuardUpgradeable,
-  PausableUpgradeable,
-  UUPSUpgradeable
-{
-  using SafeERC20Upgradeable for IERC20Upgradeable;
-  using AddressUpgradeable for address;
-
-  uint256 public version;
-
-  /// @custom:oz-upgrades-unsafe-allow constructor
-  function initialize() public initializer {
-    __Ownable_init();
-    __ReentrancyGuard_init();
-    __Pausable_init();
-    __UUPSUpgradeable_init();
-    version = 1;
-    console.log("v", version);
-  }
-
-  function _authorizeUpgrade(address newImplementation)
-    internal
-    override
-    onlyOwner
-  {}
-}
-
-contract MockPricePrediction is DeHubPricePredictionUpgradeable {
+contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
   using SafeMathUpgradeable for uint256;
   using SafeERC20Upgradeable for IERC20Upgradeable;
   using AddressUpgradeable for address;
@@ -322,7 +255,7 @@ contract MockPricePrediction is DeHubPricePredictionUpgradeable {
       "Not within bufferBlocks"
     );
 
-    int256 currentPrice = _getPriceFromOracle(false);
+    int256 currentPrice = _getPriceFromOracle();
     _safeLockRound(currentEpoch, currentPrice);
 
     currentEpoch = currentEpoch + 1;
@@ -339,7 +272,7 @@ contract MockPricePrediction is DeHubPricePredictionUpgradeable {
       "Genesis start/lock not triggered"
     );
 
-    int256 currentPrice = _getPriceFromOracle(true);
+    int256 currentPrice = _getPriceFromOracle();
     // CurrentEpoch refers to previous round (n-1)
     _safeLockRound(currentEpoch, currentPrice);
     _safeEndRound(currentEpoch - 1, currentPrice);
@@ -664,10 +597,10 @@ contract MockPricePrediction is DeHubPricePredictionUpgradeable {
    * @dev Get latest recorded price from oracle
    * If it falls below allowed buffer or has not updated, it would be invalid
    */
-  function _getPriceFromOracle(bool isLock) internal returns (int256) {
+  function _getPriceFromOracle() internal returns (int256) {
     uint256 leastAllowedTimestamp = block.timestamp.add(oracleUpdateAllowance);
     (uint80 roundId, int256 price, , uint256 timestamp, ) = oracle
-      .latestRoundData(isLock);
+      .latestRoundData();
     require(
       timestamp <= leastAllowedTimestamp,
       "Oracle update exceeded max time"
