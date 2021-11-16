@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 import "./abstracts/DeHubPricePredictionUpgradeable.sol";
@@ -121,22 +122,19 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
   }
 
   modifier onlyAdmin() {
-    require(msg.sender == adminAddress, "PricePrediction: admin only function");
+    require(msg.sender == adminAddress, "PP: admin only function");
     _;
   }
 
   modifier onlyOperator() {
-    require(
-      msg.sender == operatorAddress,
-      "PricePrediction: operator only function"
-    );
+    require(msg.sender == operatorAddress, "PP: operator only function");
     _;
   }
 
   modifier onlyAdminOrOperator() {
     require(
       msg.sender == adminAddress || msg.sender == operatorAddress,
-      "PricePrediction: admin | operator only function"
+      "PP: admin | operator only"
     );
     _;
   }
@@ -177,10 +175,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * callable by admin
    */
   function setBufferBlocks(uint256 _bufferBlocks) external onlyAdmin {
-    require(
-      _bufferBlocks <= intervalBlocks,
-      "Cannot be more than intervalBlocks"
-    );
+    require(_bufferBlocks <= intervalBlocks, "Can't be > intervalBlocks");
     bufferBlocks = _bufferBlocks;
   }
 
@@ -189,7 +184,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * callable by admin
    */
   function setOracle(address _oracle) external onlyAdmin {
-    require(_oracle != address(0), "Cannot be zero address");
+    require(_oracle != address(0), "Can't be 0 addr");
     oracle = AggregatorV3Interface(_oracle);
   }
 
@@ -209,7 +204,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * callable by admin
    */
   function setRewardRate(uint256 _rewardRate) external onlyAdmin {
-    require(_rewardRate <= TOTAL_RATE, "rewardRate cannot be more than 100%");
+    require(_rewardRate <= TOTAL_RATE, "rewardRate can't be > 100%");
     rewardRate = _rewardRate;
     treasuryRate = TOTAL_RATE.sub(_rewardRate);
 
@@ -221,10 +216,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * callable by admin
    */
   function setTreasuryRate(uint256 _treasuryRate) external onlyAdmin {
-    require(
-      _treasuryRate <= TOTAL_RATE,
-      "treasuryRate cannot be more than 100%"
-    );
+    require(_treasuryRate <= TOTAL_RATE, "treasuryRate can't be > 100%");
     rewardRate = TOTAL_RATE.sub(_treasuryRate);
     treasuryRate = _treasuryRate;
 
@@ -245,7 +237,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * @dev Start genesis round
    */
   function genesisStartRound() external onlyOperator whenNotPaused {
-    require(!genesisStartOnce, "Can only run genesisStartRound once");
+    require(!genesisStartOnce, "Can only run once");
 
     currentEpoch = currentEpoch + 1;
     _startRound(currentEpoch);
@@ -256,14 +248,11 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * @dev Lock genesis round
    */
   function genesisLockRound() external onlyOperator whenNotPaused {
-    require(
-      genesisStartOnce,
-      "Can only run after genesisStartRound is triggered"
-    );
-    require(!genesisLockOnce, "Can only run genesisLockRound once");
+    require(genesisStartOnce, "genesisStartRound not triggered");
+    require(!genesisLockOnce, "Can only run once");
     require(
       block.number <= rounds[currentEpoch].lockBlock.add(bufferBlocks),
-      "Can only lock round within bufferBlocks"
+      "Not within bufferBlocks"
     );
 
     int256 currentPrice = _getPriceFromOracle();
@@ -280,7 +269,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
   function executeRound() external onlyOperator whenNotPaused {
     require(
       genesisStartOnce && genesisLockOnce,
-      "Can only run after genesisStartRound and genesisLockRound is triggered"
+      "Genesis start/lock not triggered"
     );
 
     int256 currentPrice = _getPriceFromOracle();
@@ -307,12 +296,9 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
     require(_bettable(currentEpoch), "Round not bettable");
     require(
       reserveToken.balanceOf(msg.sender) >= _amount,
-      "Insufficient balance of reserveToken"
+      "Insuff. balance of reserveToken"
     );
-    require(
-      _amount >= minBetAmount,
-      "Bet amount must be greater than minBetAmount"
-    );
+    require(_amount >= minBetAmount, "Bet must be > minBetAmount");
     require(
       ledger[currentEpoch][msg.sender].amount == 0,
       "Can only bet once per round"
@@ -348,12 +334,9 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
     require(_bettable(currentEpoch), "Round not bettable");
     require(
       reserveToken.balanceOf(msg.sender) >= _amount,
-      "Insufficient balance of reserveToken"
+      "Insuff. balance of reserveToken"
     );
-    require(
-      _amount >= minBetAmount,
-      "Bet amount must be greater than minBetAmount"
-    );
+    require(_amount >= minBetAmount, "Bet must be > minBetAmount");
     require(
       ledger[currentEpoch][msg.sender].amount == 0,
       "Can only bet once per round"
@@ -501,17 +484,11 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * Previous round n-2 must end
    */
   function _safeStartRound(uint256 epoch) internal {
-    require(
-      genesisStartOnce,
-      "Can only run after genesisStartRound is triggered"
-    );
-    require(
-      rounds[epoch - 2].endBlock != 0,
-      "Can only start round after round n-2 has ended"
-    );
+    require(genesisStartOnce, "genesisStartRound not triggered");
+    require(rounds[epoch - 2].endBlock != 0, "Round n-2 not ended");
     require(
       block.number >= rounds[epoch - 2].endBlock,
-      "Can only start new round after round n-2 endBlock"
+      "Round n-2 not endBlock"
     );
     _startRound(epoch);
   }
@@ -531,17 +508,11 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * @dev Lock round
    */
   function _safeLockRound(uint256 epoch, int256 price) internal {
-    require(
-      rounds[epoch].startBlock != 0,
-      "Can only lock round after round has started"
-    );
-    require(
-      block.number >= rounds[epoch].lockBlock,
-      "Can only lock round after lockBlock"
-    );
+    require(rounds[epoch].startBlock != 0, "Round not started");
+    require(block.number >= rounds[epoch].lockBlock, "Round not lockBlock");
     require(
       block.number <= rounds[epoch].lockBlock.add(bufferBlocks),
-      "Can only lock round within bufferBlocks"
+      "Round not within bufferBlocks"
     );
     _lockRound(epoch, price);
   }
@@ -557,17 +528,11 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * @dev End round
    */
   function _safeEndRound(uint256 epoch, int256 price) internal {
-    require(
-      rounds[epoch].lockBlock != 0,
-      "Can only end round after round has locked"
-    );
-    require(
-      block.number >= rounds[epoch].endBlock,
-      "Can only end round after endBlock"
-    );
+    require(rounds[epoch].lockBlock != 0, "Round not locked");
+    require(block.number >= rounds[epoch].endBlock, "Round not endBlock");
     require(
       block.number <= rounds[epoch].endBlock.add(bufferBlocks),
-      "Can only end round within bufferBlocks"
+      "Round not within bufferBlocks"
     );
     _endRound(epoch, price);
   }
@@ -586,7 +551,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
   function _calculateRewards(uint256 epoch) internal {
     require(
       rewardRate.add(treasuryRate) == TOTAL_RATE,
-      "rewardRate and treasuryRate must add up to TOTAL_RATE"
+      "Reward + treasury != TOTAL_RATE"
     );
     require(
       rounds[epoch].rewardBaseCalAmount == 0 && rounds[epoch].rewardAmount == 0,
@@ -638,26 +603,15 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
       .latestRoundData();
     require(
       timestamp <= leastAllowedTimestamp,
-      "Oracle update exceeded max timestamp allowance"
+      "Oracle update exceeded max time"
     );
-    require(
-      roundId > oracleLatestRoundId,
-      "Oracle update roundId must be larger than oracleLatestRoundId"
-    );
+    require(roundId > oracleLatestRoundId, "roundId must be > latest id");
     oracleLatestRoundId = uint256(roundId);
     return price;
   }
 
   function _safeTransferreserveToken(address to, uint256 value) internal {
     reserveToken.safeTransfer(to, value);
-  }
-
-  function _isContract(address addr) internal view returns (bool) {
-    uint256 size;
-    assembly {
-      size := extcodesize(addr)
-    }
-    return size > 0;
   }
 
   /**

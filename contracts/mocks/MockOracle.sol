@@ -1,12 +1,14 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-contract MockOracle {
+abstract contract MockOracle {
   uint80 public roundId;
 
-  constructor() public {}
+  constructor() {}
 
   function latestRoundData(bool isLock)
     public
+    view
     returns (
       uint80,
       uint64,

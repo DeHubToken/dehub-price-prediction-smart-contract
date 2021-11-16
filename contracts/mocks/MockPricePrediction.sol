@@ -1,10 +1,13 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "hardhat/console.sol";
 
 interface AggregatorV3Interface {
@@ -40,9 +43,39 @@ interface AggregatorV3Interface {
     );
 }
 
-contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
+abstract contract DeHubPricePredictionUpgradeable is
+  Initializable,
+  OwnableUpgradeable,
+  ReentrancyGuardUpgradeable,
+  PausableUpgradeable,
+  UUPSUpgradeable
+{
+  using SafeERC20Upgradeable for IERC20Upgradeable;
+  using AddressUpgradeable for address;
+
+  uint256 public version;
+
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  function initialize() public initializer {
+    __Ownable_init();
+    __ReentrancyGuard_init();
+    __Pausable_init();
+    __UUPSUpgradeable_init();
+    version = 1;
+    console.log("v", version);
+  }
+
+  function _authorizeUpgrade(address newImplementation)
+    internal
+    override
+    onlyOwner
+  {}
+}
+
+contract MockPricePrediction is DeHubPricePredictionUpgradeable {
   using SafeMathUpgradeable for uint256;
   using SafeERC20Upgradeable for IERC20Upgradeable;
+  using AddressUpgradeable for address;
 
   struct Round {
     uint256 epoch;
@@ -67,6 +100,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   struct BetInfo {
     Position position;
     uint256 amount;
+    uint256 timestamp;
     bool claimed; // default false
   }
 
@@ -83,15 +117,15 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   uint256 public oracleLatestRoundId;
 
   uint256 public constant TOTAL_RATE = 100; // 100%
-  uint256 public rewardRate = 90; // 90%
-  uint256 public treasuryRate = 10; // 10%
+  uint256 public rewardRate;
+  uint256 public treasuryRate;
   uint256 public minBetAmount;
   uint256 public oracleUpdateAllowance; // seconds
 
-  bool public genesisStartOnce = false;
-  bool public genesisLockOnce = false;
+  bool public genesisStartOnce;
+  bool public genesisLockOnce;
 
-  IERC20Upgradeable public BUSD;
+  IERC20Upgradeable public reserveToken;
 
   event StartRound(uint256 indexed epoch, uint256 blockNumber);
   event LockRound(uint256 indexed epoch, uint256 blockNumber, int256 price);
@@ -127,7 +161,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   event Pause(uint256 epoch);
   event Unpause(uint256 epoch);
 
-  constructor(
+  function __PricePrediction_init(
     AggregatorV3Interface _oracle,
     address _adminAddress,
     address _operatorAddress,
@@ -135,8 +169,15 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
     uint256 _bufferBlocks,
     uint256 _minBetAmount,
     uint256 _oracleUpdateAllowance,
-    address _BUSD
-  ) public {
+    IERC20Upgradeable _reserveToken
+  ) public initializer {
+    DeHubPricePredictionUpgradeable.initialize();
+
+    rewardRate = 90; // 90%
+    treasuryRate = 10; // 10%
+    genesisStartOnce = false;
+    genesisLockOnce = false;
+
     oracle = _oracle;
     adminAddress = _adminAddress;
     operatorAddress = _operatorAddress;
@@ -144,33 +185,29 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
     bufferBlocks = _bufferBlocks;
     minBetAmount = _minBetAmount;
     oracleUpdateAllowance = _oracleUpdateAllowance;
-    BUSD = IERC20Upgradeable(_BUSD);
+    reserveToken = _reserveToken;
   }
 
   modifier onlyAdmin() {
-    require(msg.sender == adminAddress, "PricePrediction: admin only function");
+    require(msg.sender == adminAddress, "PP: admin only function");
     _;
   }
 
   modifier onlyOperator() {
-    require(
-      msg.sender == operatorAddress,
-      "PricePrediction: operator only function"
-    );
+    require(msg.sender == operatorAddress, "PP: operator only function");
     _;
   }
 
   modifier onlyAdminOrOperator() {
     require(
       msg.sender == adminAddress || msg.sender == operatorAddress,
-      "PricePrediction: admin | operator only function"
+      "PP: admin | operator only"
     );
     _;
   }
 
   modifier notContract() {
-    require(!_isContract(msg.sender), "contract not allowed");
-    require(msg.sender == tx.origin, "proxy contract not allowed");
+    require(!msg.sender.isContract(), "Contract not allowed");
     _;
   }
 
@@ -205,10 +242,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * callable by admin
    */
   function setBufferBlocks(uint256 _bufferBlocks) external onlyAdmin {
-    require(
-      _bufferBlocks <= intervalBlocks,
-      "Cannot be more than intervalBlocks"
-    );
+    require(_bufferBlocks <= intervalBlocks, "Can't be > intervalBlocks");
     bufferBlocks = _bufferBlocks;
   }
 
@@ -217,7 +251,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * callable by admin
    */
   function setOracle(address _oracle) external onlyAdmin {
-    require(_oracle != address(0), "Cannot be zero address");
+    require(_oracle != address(0), "Can't be 0 addr");
     oracle = AggregatorV3Interface(_oracle);
   }
 
@@ -237,7 +271,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * callable by admin
    */
   function setRewardRate(uint256 _rewardRate) external onlyAdmin {
-    require(_rewardRate <= TOTAL_RATE, "rewardRate cannot be more than 100%");
+    require(_rewardRate <= TOTAL_RATE, "rewardRate can't be > 100%");
     rewardRate = _rewardRate;
     treasuryRate = TOTAL_RATE.sub(_rewardRate);
 
@@ -249,10 +283,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * callable by admin
    */
   function setTreasuryRate(uint256 _treasuryRate) external onlyAdmin {
-    require(
-      _treasuryRate <= TOTAL_RATE,
-      "treasuryRate cannot be more than 100%"
-    );
+    require(_treasuryRate <= TOTAL_RATE, "treasuryRate can't be > 100%");
     rewardRate = TOTAL_RATE.sub(_treasuryRate);
     treasuryRate = _treasuryRate;
 
@@ -273,7 +304,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * @dev Start genesis round
    */
   function genesisStartRound() external onlyOperator whenNotPaused {
-    require(!genesisStartOnce, "Can only run genesisStartRound once");
+    require(!genesisStartOnce, "Can only run once");
 
     currentEpoch = currentEpoch + 1;
     _startRound(currentEpoch);
@@ -284,14 +315,11 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * @dev Lock genesis round
    */
   function genesisLockRound() external onlyOperator whenNotPaused {
-    require(
-      genesisStartOnce,
-      "Can only run after genesisStartRound is triggered"
-    );
-    require(!genesisLockOnce, "Can only run genesisLockRound once");
+    require(genesisStartOnce, "genesisStartRound not triggered");
+    require(!genesisLockOnce, "Can only run once");
     require(
       block.number <= rounds[currentEpoch].lockBlock.add(bufferBlocks),
-      "Can only lock round within bufferBlocks"
+      "Not within bufferBlocks"
     );
 
     int256 currentPrice = _getPriceFromOracle(false);
@@ -308,7 +336,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   function executeRound() external onlyOperator whenNotPaused {
     require(
       genesisStartOnce && genesisLockOnce,
-      "Can only run after genesisStartRound and genesisLockRound is triggered"
+      "Genesis start/lock not triggered"
     );
 
     int256 currentPrice = _getPriceFromOracle(true);
@@ -325,22 +353,25 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   /**
    * @dev Bet bear position
    */
-  function betBear(uint256 _amount) external payable whenNotPaused notContract {
+  function betBear(uint256 _amount)
+    external
+    payable
+    whenNotPaused
+    nonReentrant
+    notContract
+  {
     require(_bettable(currentEpoch), "Round not bettable");
     require(
-      BUSD.balanceOf(msg.sender) >= _amount,
-      "Insufficient balance of BUSD"
+      reserveToken.balanceOf(msg.sender) >= _amount,
+      "Insuff. balance of reserveToken"
     );
-    require(
-      _amount >= minBetAmount,
-      "Bet amount must be greater than minBetAmount"
-    );
+    require(_amount >= minBetAmount, "Bet must be > minBetAmount");
     require(
       ledger[currentEpoch][msg.sender].amount == 0,
       "Can only bet once per round"
     );
 
-    BUSD.safeTransferFrom(msg.sender, address(this), _amount);
+    reserveToken.safeTransferFrom(msg.sender, address(this), _amount);
 
     // Update round data
     Round storage round = rounds[currentEpoch];
@@ -351,6 +382,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
     BetInfo storage betInfo = ledger[currentEpoch][msg.sender];
     betInfo.position = Position.Bear;
     betInfo.amount = _amount;
+    betInfo.timestamp = block.timestamp;
     userRounds[msg.sender].push(currentEpoch);
 
     emit BetBear(msg.sender, currentEpoch, _amount);
@@ -359,22 +391,25 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   /**
    * @dev Bet bull position
    */
-  function betBull(uint256 _amount) external payable whenNotPaused notContract {
+  function betBull(uint256 _amount)
+    external
+    payable
+    whenNotPaused
+    nonReentrant
+    notContract
+  {
     require(_bettable(currentEpoch), "Round not bettable");
     require(
-      BUSD.balanceOf(msg.sender) >= _amount,
-      "Insufficient balance of BUSD"
+      reserveToken.balanceOf(msg.sender) >= _amount,
+      "Insuff. balance of reserveToken"
     );
-    require(
-      _amount >= minBetAmount,
-      "Bet amount must be greater than minBetAmount"
-    );
+    require(_amount >= minBetAmount, "Bet must be > minBetAmount");
     require(
       ledger[currentEpoch][msg.sender].amount == 0,
       "Can only bet once per round"
     );
 
-    BUSD.safeTransferFrom(msg.sender, address(this), _amount);
+    reserveToken.safeTransferFrom(msg.sender, address(this), _amount);
 
     // Update round data
     Round storage round = rounds[currentEpoch];
@@ -385,6 +420,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
     BetInfo storage betInfo = ledger[currentEpoch][msg.sender];
     betInfo.position = Position.Bull;
     betInfo.amount = _amount;
+    betInfo.timestamp = block.timestamp;
     userRounds[msg.sender].push(currentEpoch);
 
     emit BetBull(msg.sender, currentEpoch, _amount);
@@ -415,7 +451,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
 
     BetInfo storage betInfo = ledger[epoch][msg.sender];
     betInfo.claimed = true;
-    _safeTransferBUSD(address(msg.sender), reward);
+    _safeTransferreserveToken(address(msg.sender), reward);
 
     emit Claim(msg.sender, epoch, reward);
   }
@@ -427,9 +463,16 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   function claimTreasury() external onlyAdmin {
     uint256 currentTreasuryAmount = treasuryAmount;
     treasuryAmount = 0;
-    _safeTransferBUSD(adminAddress, currentTreasuryAmount);
+    _safeTransferreserveToken(adminAddress, currentTreasuryAmount);
 
     emit ClaimTreasury(currentTreasuryAmount);
+  }
+
+  /**
+   * @dev Return the total number of rounds a user has entered
+   */
+  function getTotalUserRounds(address user) external view returns (uint256) {
+    return userRounds[user].length;
   }
 
   /**
@@ -508,17 +551,11 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * Previous round n-2 must end
    */
   function _safeStartRound(uint256 epoch) internal {
-    require(
-      genesisStartOnce,
-      "Can only run after genesisStartRound is triggered"
-    );
-    require(
-      rounds[epoch - 2].endBlock != 0,
-      "Can only start round after round n-2 has ended"
-    );
+    require(genesisStartOnce, "genesisStartRound not triggered");
+    require(rounds[epoch - 2].endBlock != 0, "Round n-2 not ended");
     require(
       block.number >= rounds[epoch - 2].endBlock,
-      "Can only start new round after round n-2 endBlock"
+      "Round n-2 not endBlock"
     );
     _startRound(epoch);
   }
@@ -538,17 +575,11 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * @dev Lock round
    */
   function _safeLockRound(uint256 epoch, int256 price) internal {
-    require(
-      rounds[epoch].startBlock != 0,
-      "Can only lock round after round has started"
-    );
-    require(
-      block.number >= rounds[epoch].lockBlock,
-      "Can only lock round after lockBlock"
-    );
+    require(rounds[epoch].startBlock != 0, "Round not started");
+    require(block.number >= rounds[epoch].lockBlock, "Round not lockBlock");
     require(
       block.number <= rounds[epoch].lockBlock.add(bufferBlocks),
-      "Can only lock round within bufferBlocks"
+      "Round not within bufferBlocks"
     );
     _lockRound(epoch, price);
   }
@@ -564,17 +595,11 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
    * @dev End round
    */
   function _safeEndRound(uint256 epoch, int256 price) internal {
-    require(
-      rounds[epoch].lockBlock != 0,
-      "Can only end round after round has locked"
-    );
-    require(
-      block.number >= rounds[epoch].endBlock,
-      "Can only end round after endBlock"
-    );
+    require(rounds[epoch].lockBlock != 0, "Round not locked");
+    require(block.number >= rounds[epoch].endBlock, "Round not endBlock");
     require(
       block.number <= rounds[epoch].endBlock.add(bufferBlocks),
-      "Can only end round within bufferBlocks"
+      "Round not within bufferBlocks"
     );
     _endRound(epoch, price);
   }
@@ -593,7 +618,7 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
   function _calculateRewards(uint256 epoch) internal {
     require(
       rewardRate.add(treasuryRate) == TOTAL_RATE,
-      "rewardRate and treasuryRate must add up to TOTAL_RATE"
+      "Reward + treasury != TOTAL_RATE"
     );
     require(
       rounds[epoch].rewardBaseCalAmount == 0 && rounds[epoch].rewardAmount == 0,
@@ -645,26 +670,15 @@ contract MockPricePrediction is OwnableUpgradeable, PausableUpgradeable {
       .latestRoundData(isLock);
     require(
       timestamp <= leastAllowedTimestamp,
-      "Oracle update exceeded max timestamp allowance"
+      "Oracle update exceeded max time"
     );
-    require(
-      roundId > oracleLatestRoundId,
-      "Oracle update roundId must be larger than oracleLatestRoundId"
-    );
+    require(roundId > oracleLatestRoundId, "roundId must be > latest id");
     oracleLatestRoundId = uint256(roundId);
     return price;
   }
 
-  function _safeTransferBUSD(address to, uint256 value) internal {
-    BUSD.safeTransfer(to, value);
-  }
-
-  function _isContract(address addr) internal view returns (bool) {
-    uint256 size;
-    assembly {
-      size := extcodesize(addr)
-    }
-    return size > 0;
+  function _safeTransferreserveToken(address to, uint256 value) internal {
+    reserveToken.safeTransfer(to, value);
   }
 
   /**

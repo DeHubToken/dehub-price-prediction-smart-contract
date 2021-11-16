@@ -2,14 +2,14 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/abstracts/DeHubPricePredictionUpgradeable.sol": {
-      "lastModificationDate": 1636984088943,
-      "contentHash": "53d12b9e9f596467995a277e4dce7daf",
+      "lastModificationDate": 1637053426341,
+      "contentHash": "006f9d58f2cee310c49abe4d40c6d248",
       "sourceName": "contracts/abstracts/DeHubPricePredictionUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -25,11 +25,15 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
       "imports": [
-        "hardhat/console.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
@@ -55,7 +59,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -90,7 +94,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -105,6 +109,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -125,7 +134,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -140,6 +149,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -160,7 +174,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -175,6 +189,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -198,7 +217,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -213,6 +232,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -235,7 +259,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -250,6 +274,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -273,7 +302,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -288,6 +317,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -311,7 +345,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -326,6 +360,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -349,7 +388,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -364,6 +403,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -386,7 +430,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -401,6 +445,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -421,7 +470,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -436,6 +485,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -461,7 +515,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -476,6 +530,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -496,7 +555,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -511,6 +570,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -524,14 +588,14 @@
       ]
     },
     "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/DeHubPricePredictionV2.sol": {
-      "lastModificationDate": 1636986116017,
-      "contentHash": "815677685b62fe815fffbbf79343f26d",
+      "lastModificationDate": 1637054285572,
+      "contentHash": "9ff33776c7a641c850e21fe00baf4056",
       "sourceName": "contracts/DeHubPricePredictionV2.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -547,12 +611,16 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
       "imports": [
-        "./DeHubPricePrediction.sol",
-        "hardhat/console.sol"
+        "./DeHubPricePrediction.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -562,14 +630,14 @@
       ]
     },
     "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/DeHubPricePrediction.sol": {
-      "lastModificationDate": 1636988823637,
-      "contentHash": "fd34f96a26d0c22c06c504645959db43",
+      "lastModificationDate": 1637054278450,
+      "contentHash": "45a5e5d06e8be2d99e7b499a1ea2ab77",
       "sourceName": "contracts/DeHubPricePrediction.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -584,6 +652,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -608,7 +681,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -623,6 +696,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -636,14 +714,14 @@
       ]
     },
     "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/interfaces/AggregatorV3Interface.sol": {
-      "lastModificationDate": 1636982289252,
-      "contentHash": "5f7aca2859b546d3ab7c06bcc97070aa",
+      "lastModificationDate": 1637054298082,
+      "contentHash": "7dfa362162f5c6fd88be7395ac96a492",
       "sourceName": "contracts/interfaces/AggregatorV3Interface.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -658,6 +736,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -671,14 +754,14 @@
       ]
     },
     "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/mocks/MockPricePrediction.sol": {
-      "lastModificationDate": 1636984104743,
-      "contentHash": "356f5715252d08dea7e9f6ca2c5b63b6",
+      "lastModificationDate": 1637055066072,
+      "contentHash": "f58a010d8d7462e1ff52c63ddcc6c420",
       "sourceName": "contracts/mocks/MockPricePrediction.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -694,22 +777,29 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
       "imports": [
+        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
-        "hardhat/console.sol"
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
       ],
       "artifacts": [
         "AggregatorV3Interface",
+        "DeHubPricePredictionUpgradeable",
         "MockPricePrediction"
       ]
     },
@@ -721,7 +811,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -736,6 +826,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -758,7 +853,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -773,6 +868,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -797,7 +897,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -812,6 +912,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -832,7 +937,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -847,6 +952,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -869,7 +979,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -885,6 +995,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -897,14 +1012,14 @@
       ]
     },
     "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/mocks/MockOracle.sol": {
-      "lastModificationDate": 1636984789217,
-      "contentHash": "1c896a783e4e75b27d316229dcf16854",
+      "lastModificationDate": 1637054903674,
+      "contentHash": "085ee821e2ffb59ed7cd41f86a0e10ac",
       "sourceName": "contracts/mocks/MockOracle.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -919,6 +1034,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -939,7 +1059,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -954,6 +1074,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -974,7 +1099,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -989,6 +1114,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -1012,7 +1142,7 @@
         "version": "0.8.4",
         "settings": {
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
           "outputSelection": {
@@ -1027,6 +1157,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }

@@ -8,7 +8,7 @@ export const addresses = {
   },
   testnet: {
     dehub: "0x5A5e32fE118E7c7b6536d143F446269123c0ba74",
-    oracleBNBUSD: "???", // TODO: add testnet oracle address
+    oracleBNBUSD: "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526",
     busd: "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7",
   },
 };
