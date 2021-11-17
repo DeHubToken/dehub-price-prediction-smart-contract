@@ -403,11 +403,10 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
   /**
    * @dev set pending oracle
    */
-  function updatePriceOracle(AggregatorV3Interface _oracle) external onlyOperator {
-    require(address(_oracle) != address(oracle), "Cannot update with same oracle!");
+  function updatePriceOracle() external onlyOperator {
     require(address(_oracle) != address(pendingOracle), "Same oracle is in pending!");
-    pendingOracle = _oracle;
-    pendingOracle = address (0x0);
+    oracle = pendingOracle;
+    pendingOracle = address (0);
   }
 
   /**
