@@ -88,7 +88,7 @@ module.exports = {
   },
   preprocess: {
     eachLine: removeConsoleLog(
-      (hre) =>
+      (hre: any) =>
         hre.network.name !== "hardhat" && hre.network.name !== "localhost"
     ),
   },
