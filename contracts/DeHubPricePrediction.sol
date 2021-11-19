@@ -47,6 +47,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
   address public operatorAddress;
   uint256 public treasuryAmount;
   AggregatorV3Interface internal oracle;
+  AggregatorV3Interface public pendingOracle;
   uint256 public oracleLatestRoundId;
 
   uint256 public constant TOTAL_RATE = 100; // 100%
@@ -387,6 +388,25 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
     _safeTransferreserveToken(address(msg.sender), reward);
 
     emit Claim(msg.sender, epoch, reward);
+  }
+
+
+  /**
+   * @dev set pending oracle
+   */
+  function updatePendingOracle(AggregatorV3Interface _oracle) external onlyAdmin {
+    require(address(_oracle) != address(oracle), "Cannot update with same oracle!");
+    require(address(_oracle) != address(pendingOracle), "Same oracle is in pending!");
+    pendingOracle = _oracle;
+  }
+
+  /**
+   * @dev set oracle as pending oracle
+   */
+  function updatePriceOracle() external onlyOperator {
+    require(address(oracle) != address(pendingOracle), "Same oracle is in pending!");
+    oracle = pendingOracle;
+    pendingOracle = AggregatorV3Interface(address (0x0));
   }
 
   /**

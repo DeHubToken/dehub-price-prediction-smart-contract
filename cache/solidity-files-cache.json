@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/abstracts/DeHubPricePredictionUpgradeable.sol": {
-      "lastModificationDate": 1637053426341,
-      "contentHash": "006f9d58f2cee310c49abe4d40c6d248",
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/abstracts/DeHubPricePredictionUpgradeable.sol": {
+      "lastModificationDate": 1637056160000,
+      "contentHash": "53d12b9e9f596467995a277e4dce7daf",
       "sourceName": "contracts/abstracts/DeHubPricePredictionUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -25,15 +25,11 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
       "imports": [
+        "hardhat/console.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
@@ -51,8 +47,8 @@
         "DeHubPricePredictionUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1636963908824,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1636969051000,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -86,8 +82,8 @@
         "console"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
-      "lastModificationDate": 1636963908033,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "3a5432b9dfef2ff5c8f58fcc0b1452b2",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
       "solcConfig": {
@@ -110,11 +106,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -126,8 +117,8 @@
         "IERC20Upgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
-      "lastModificationDate": 1636963908095,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "cbb8386f0120d46d66ff42dffbbc16c1",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
       "solcConfig": {
@@ -150,11 +141,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -166,8 +152,8 @@
         "Initializable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
-      "lastModificationDate": 1636963908105,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "0961e9d7e3b0767794d82a179f4b88e4",
       "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
       "solcConfig": {
@@ -190,11 +176,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -209,8 +190,8 @@
         "OwnableUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
-      "lastModificationDate": 1636963908119,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "304d95a6b1f0ca8db842e5fe1f2024a9",
       "sourceName": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
       "solcConfig": {
@@ -233,11 +214,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -251,8 +227,8 @@
         "ReentrancyGuardUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
-      "lastModificationDate": 1636963908109,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "12a1ac4f7ef141dcf92f6dba57890d16",
       "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
       "solcConfig": {
@@ -275,11 +251,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -294,8 +265,8 @@
         "PausableUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
-      "lastModificationDate": 1636963908172,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "15b6a36d8d42626557f8bc23db5e00a9",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
       "solcConfig": {
@@ -318,11 +289,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -337,8 +303,8 @@
         "UUPSUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol": {
-      "lastModificationDate": 1636963908131,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "761ab93a01d4d5a1a2b308712ab59b40",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
       "solcConfig": {
@@ -361,11 +327,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -380,8 +341,8 @@
         "SafeERC20Upgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
-      "lastModificationDate": 1636963907617,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1637165720000,
       "contentHash": "3eaa562e66c40d85f919cc6ee5059ebe",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
       "solcConfig": {
@@ -404,11 +365,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -422,8 +378,8 @@
         "ContextUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
-      "lastModificationDate": 1636963907583,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1637165720000,
       "contentHash": "25dd93dd672c3114a782e2a4424201b3",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
       "solcConfig": {
@@ -446,11 +402,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -462,8 +413,8 @@
         "AddressUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
-      "lastModificationDate": 1636963907806,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+      "lastModificationDate": 1637165721000,
       "contentHash": "430950c379ec78aff91b5e8fa04c8aba",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol",
       "solcConfig": {
@@ -486,11 +437,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -507,8 +453,8 @@
         "ERC1967UpgradeUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
-      "lastModificationDate": 1636963907996,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
+      "lastModificationDate": 1637165721000,
       "contentHash": "02d4784b119cc80015bef24a5e6bb0ea",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol",
       "solcConfig": {
@@ -531,11 +477,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -547,8 +488,8 @@
         "IBeaconUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
-      "lastModificationDate": 1636963908161,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "92db084d1a7fc35176205dae79fa7da0",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol",
       "solcConfig": {
@@ -571,11 +512,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -587,51 +523,9 @@
         "StorageSlotUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/DeHubPricePredictionV2.sol": {
-      "lastModificationDate": 1637054285572,
-      "contentHash": "9ff33776c7a641c850e21fe00baf4056",
-      "sourceName": "contracts/DeHubPricePredictionV2.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [
-        "./DeHubPricePrediction.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "DeHubPricePredictionV2"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/DeHubPricePrediction.sol": {
-      "lastModificationDate": 1637054278450,
-      "contentHash": "45a5e5d06e8be2d99e7b499a1ea2ab77",
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/DeHubPricePrediction.sol": {
+      "lastModificationDate": 1637166107000,
+      "contentHash": "a7124dd2c050436e81dcc4b18f3002ea",
       "sourceName": "contracts/DeHubPricePrediction.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -653,11 +547,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -673,8 +562,8 @@
         "DeHubPricePrediction"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol": {
-      "lastModificationDate": 1636963908134,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol": {
+      "lastModificationDate": 1637165722000,
       "contentHash": "824ab7c5ce280675c9234007c6fdaa67",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
       "solcConfig": {
@@ -697,11 +586,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -713,8 +597,8 @@
         "SafeMathUpgradeable"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/interfaces/AggregatorV3Interface.sol": {
-      "lastModificationDate": 1637054298082,
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1637056160000,
       "contentHash": "7dfa362162f5c6fd88be7395ac96a492",
       "sourceName": "contracts/interfaces/AggregatorV3Interface.sol",
       "solcConfig": {
@@ -737,11 +621,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -753,9 +632,47 @@
         "AggregatorV3Interface"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/mocks/MockPricePrediction.sol": {
-      "lastModificationDate": 1637055066072,
-      "contentHash": "f58a010d8d7462e1ff52c63ddcc6c420",
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/DeHubPricePredictionV2.sol": {
+      "lastModificationDate": 1637056160000,
+      "contentHash": "0dfc0dada73b69263bc4cc9f2f154a76",
+      "sourceName": "contracts/DeHubPricePredictionV2.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./DeHubPricePrediction.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "DeHubPricePredictionV2"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/mocks/MockPricePrediction.sol": {
+      "lastModificationDate": 1637056160000,
+      "contentHash": "241d6fc167bad90bd5972b5e79debf74",
       "sourceName": "contracts/mocks/MockPricePrediction.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -777,11 +694,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -792,7 +704,8 @@
         "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -803,256 +716,8 @@
         "MockPricePrediction"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/mocks/MockERC20.sol": {
-      "lastModificationDate": 1636984216941,
-      "contentHash": "b0ae7590eebff711e8b0e26cabf0459e",
-      "sourceName": "contracts/mocks/MockERC20.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "MockERC20"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1636963907856,
-      "contentHash": "2cd550cedf51b8d294607dad5023d717",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol",
-        "./extensions/IERC20Metadata.sol",
-        "../../utils/Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1636963908028,
-      "contentHash": "0eac3e1a83ee62326ca007811285b274",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1636963908031,
-      "contentHash": "aa1be06992a99bb7393b26a6af3c4dfb",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [
-        "../IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20Metadata"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1636963907685,
-      "contentHash": "851485d5b925529b1a2f34a0be077891",
-      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Context"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/mocks/MockOracle.sol": {
-      "lastModificationDate": 1637054903674,
-      "contentHash": "085ee821e2ffb59ed7cd41f86a0e10ac",
-      "sourceName": "contracts/mocks/MockOracle.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "MockOracle"
-      ]
-    },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/interfaces/IDEHUB.sol": {
-      "lastModificationDate": 1636989524803,
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/interfaces/IDEHUB.sol": {
+      "lastModificationDate": 1637056160000,
       "contentHash": "b2da1ae2fc20bfb82d9d9d99a6d8866d",
       "sourceName": "contracts/interfaces/IDEHUB.sol",
       "solcConfig": {
@@ -1075,11 +740,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -1091,8 +751,8 @@
         "IDEHUB"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/contracts/mocks/MockDeHub.sol": {
-      "lastModificationDate": 1636991379043,
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/mocks/MockDeHub.sol": {
+      "lastModificationDate": 1637056160000,
       "contentHash": "8ec137160f8fc737b11e92fd6e4be8e1",
       "sourceName": "contracts/mocks/MockDeHub.sol",
       "solcConfig": {
@@ -1115,11 +775,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -1134,8 +789,8 @@
         "MockDeHub"
       ]
     },
-    "/Users/ghost/dev/repos/dehub/dehub-price-prediction-smart-contract/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1636963908111,
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1637165721000,
       "contentHash": "4fe56b59ced59d87df6b796758f62895",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -1158,11 +813,6 @@
                 "ast"
               ]
             }
-          },
-          "libraries": {
-            "": {
-              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
-            }
           }
         }
       },
@@ -1174,6 +824,224 @@
       ],
       "artifacts": [
         "Ownable"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1637165720000,
+      "contentHash": "851485d5b925529b1a2f34a0be077891",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1637165720000,
+      "contentHash": "2cd550cedf51b8d294607dad5023d717",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1637165720000,
+      "contentHash": "0eac3e1a83ee62326ca007811285b274",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1637165720000,
+      "contentHash": "aa1be06992a99bb7393b26a6af3c4dfb",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/mocks/MockERC20.sol": {
+      "lastModificationDate": 1637056160000,
+      "contentHash": "b0ae7590eebff711e8b0e26cabf0459e",
+      "sourceName": "contracts/mocks/MockERC20.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "MockERC20"
+      ]
+    },
+    "/Volumes/Work/dehub/betting contract/contracts/contracts/mocks/MockOracle.sol": {
+      "lastModificationDate": 1637056160000,
+      "contentHash": "085ee821e2ffb59ed7cd41f86a0e10ac",
+      "sourceName": "contracts/mocks/MockOracle.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "MockOracle"
       ]
     }
   }
