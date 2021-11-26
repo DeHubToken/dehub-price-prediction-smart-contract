@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 export const addresses = {
   mainnet: {
     dehub: "0xFC206f429d55c71cb7294EfF40c6ADb20dC21508",
-    oracleBNBUSD: "0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE",
+    oracleBNBUSD: "0x0567f2323251f0aab15c8dfb1967e4e8a7d42aee",
   },
   testnet: {
     dehub: "0x5A5e32fE118E7c7b6536d143F446269123c0ba74",
