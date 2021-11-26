@@ -17,3 +17,4 @@ artifacts
 .openzeppelin/unknown-31337.json
 
 .idea
+cache/*
