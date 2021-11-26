@@ -54,7 +54,7 @@ async function main() {
       contractConfig[network.name].minBetAmount,
       contractConfig[network.name].oracleUpdateAllowance,
       network.name !== "testnet"
-        ? addresses[network.name].busd // TODO: use dehub token on testnet too
+        ? addresses[network.name].dehub
         : addresses[network.name].dehub,
     ],
     {
