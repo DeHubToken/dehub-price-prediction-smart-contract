@@ -3,7 +3,7 @@
   "files": {
     "/Volumes/Work/dehub/betting contract/contracts/contracts/abstracts/DeHubPricePredictionUpgradeable.sol": {
       "lastModificationDate": 1637056160000,
-      "contentHash": "53d12b9e9f596467995a277e4dce7daf",
+      "contentHash": "006f9d58f2cee310c49abe4d40c6d248",
       "sourceName": "contracts/abstracts/DeHubPricePredictionUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -25,11 +25,15 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
       "imports": [
-        "hardhat/console.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
@@ -106,6 +110,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -141,6 +150,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -175,6 +189,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -214,6 +233,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -250,6 +274,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -289,6 +318,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -326,6 +360,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -365,6 +404,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -402,6 +446,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -436,6 +485,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -477,6 +531,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -512,6 +571,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -546,6 +610,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -586,6 +655,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -621,6 +695,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -634,7 +713,7 @@
     },
     "/Volumes/Work/dehub/betting contract/contracts/contracts/DeHubPricePredictionV2.sol": {
       "lastModificationDate": 1637056160000,
-      "contentHash": "0dfc0dada73b69263bc4cc9f2f154a76",
+      "contentHash": "9ff33776c7a641c850e21fe00baf4056",
       "sourceName": "contracts/DeHubPricePredictionV2.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -656,12 +735,16 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
       "imports": [
-        "./DeHubPricePrediction.sol",
-        "hardhat/console.sol"
+        "./DeHubPricePrediction.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -672,7 +755,7 @@
     },
     "/Volumes/Work/dehub/betting contract/contracts/contracts/mocks/MockPricePrediction.sol": {
       "lastModificationDate": 1637056160000,
-      "contentHash": "241d6fc167bad90bd5972b5e79debf74",
+      "contentHash": "f58a010d8d7462e1ff52c63ddcc6c420",
       "sourceName": "contracts/mocks/MockPricePrediction.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -694,6 +777,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -704,8 +792,7 @@
         "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
-        "hardhat/console.sol"
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -739,6 +826,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -774,6 +866,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -813,6 +910,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -850,6 +952,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -884,6 +991,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -924,6 +1036,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -958,6 +1075,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }
@@ -996,6 +1118,11 @@
                 "ast"
               ]
             }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
+            }
           }
         }
       },
@@ -1032,6 +1159,11 @@
               "": [
                 "ast"
               ]
+            }
+          },
+          "libraries": {
+            "": {
+              "__CACHE_BREAKER__": "0x00000000d41867734bbee4c6863d9255b2b06ac1"
             }
           }
         }

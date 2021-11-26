@@ -120,6 +120,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
     minBetAmount = _minBetAmount;
     oracleUpdateAllowance = _oracleUpdateAllowance;
     reserveToken = _reserveToken;
+    pendingOracle = address(0);
   }
 
   modifier onlyAdmin() {
