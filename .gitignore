@@ -18,3 +18,4 @@ artifacts
 
 .idea
 cache/*
+/cache/solidity-files-cache.json
