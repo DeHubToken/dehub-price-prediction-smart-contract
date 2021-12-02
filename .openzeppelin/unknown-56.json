@@ -1,0 +1,328 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0xC09411b2eA0aBd5532170585b3AbBF7d6A7c500b",
+      "txHash": "0x7e7183a87a0c20a60555ddf4ea447fa94e9932af94a10b1d041761cf2d10ae01",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "d46a188b5483899fda4f0d2dbc0eed3a23761ec4df5f5491843f629c83ad6c50": {
+      "address": "0xa445f3370e40800BeB9A29526A72Cb37d74832b0",
+      "txHash": "0x311849df3b15b522e644350a745704dc8003857b804a95ecabd6af456b046b08",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:21"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:26"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:30"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:21"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:77"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:37"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:67"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "_paused",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:28"
+          },
+          {
+            "contract": "PausableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:96"
+          },
+          {
+            "contract": "ERC1967UpgradeUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:214"
+          },
+          {
+            "contract": "UUPSUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:80"
+          },
+          {
+            "contract": "DeHubPricePredictionUpgradeable",
+            "label": "version",
+            "type": "t_uint256",
+            "src": "contracts/mocks/MockPricePrediction.sol:56"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "rounds",
+            "type": "t_mapping(t_uint256,t_struct(Round)1865_storage)",
+            "src": "contracts/DeHubPricePrediction.sol:40"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "ledger",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(BetInfo)1878_storage))",
+            "src": "contracts/DeHubPricePrediction.sol:41"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "userRounds",
+            "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)",
+            "src": "contracts/DeHubPricePrediction.sol:42"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "currentEpoch",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:43"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "intervalBlocks",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:44"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "bufferBlocks",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:45"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "adminAddress",
+            "type": "t_address",
+            "src": "contracts/DeHubPricePrediction.sol:46"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "operatorAddress",
+            "type": "t_address",
+            "src": "contracts/DeHubPricePrediction.sol:47"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "treasuryAmount",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:48"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "oracle",
+            "type": "t_contract(AggregatorV3Interface)3888",
+            "src": "contracts/DeHubPricePrediction.sol:49"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "pendingOracle",
+            "type": "t_contract(AggregatorV3Interface)3888",
+            "src": "contracts/DeHubPricePrediction.sol:50"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "oracleLatestRoundId",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:51"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "rewardRate",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:54"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "treasuryRate",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:55"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "minBetAmount",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:56"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "oracleUpdateAllowance",
+            "type": "t_uint256",
+            "src": "contracts/DeHubPricePrediction.sol:57"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "genesisStartOnce",
+            "type": "t_bool",
+            "src": "contracts/DeHubPricePrediction.sol:59"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "genesisLockOnce",
+            "type": "t_bool",
+            "src": "contracts/DeHubPricePrediction.sol:60"
+          },
+          {
+            "contract": "DeHubPricePrediction",
+            "label": "reserveToken",
+            "type": "t_contract(IERC20Upgradeable)938",
+            "src": "contracts/DeHubPricePrediction.sol:62"
+          }
+        ],
+        "types": {
+          "t_mapping(t_uint256,t_struct(Round)1865_storage)": {
+            "label": "mapping(uint256 => struct DeHubPricePrediction.Round)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_struct(Round)1865_storage": {
+            "label": "struct DeHubPricePrediction.Round",
+            "members": [
+              {
+                "label": "epoch",
+                "type": "t_uint256"
+              },
+              {
+                "label": "startBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lockBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "endBlock",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lockPrice",
+                "type": "t_int256"
+              },
+              {
+                "label": "closePrice",
+                "type": "t_int256"
+              },
+              {
+                "label": "totalAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "bullAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "bearAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "rewardBaseCalAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "rewardAmount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "oracleCalled",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_int256": {
+            "label": "int256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_struct(BetInfo)1878_storage))": {
+            "label": "mapping(uint256 => mapping(address => struct DeHubPricePrediction.BetInfo))"
+          },
+          "t_mapping(t_address,t_struct(BetInfo)1878_storage)": {
+            "label": "mapping(address => struct DeHubPricePrediction.BetInfo)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_struct(BetInfo)1878_storage": {
+            "label": "struct DeHubPricePrediction.BetInfo",
+            "members": [
+              {
+                "label": "position",
+                "type": "t_enum(Position)1868"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "timestamp",
+                "type": "t_uint256"
+              },
+              {
+                "label": "claimed",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_enum(Position)1868": {
+            "label": "enum DeHubPricePrediction.Position",
+            "members": [
+              "Bull",
+              "Bear"
+            ]
+          },
+          "t_mapping(t_address,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(address => uint256[])"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_contract(AggregatorV3Interface)3888": {
+            "label": "contract AggregatorV3Interface"
+          },
+          "t_contract(IERC20Upgradeable)938": {
+            "label": "contract IERC20Upgradeable"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          }
+        }
+      }
+    }
+  }
+}
