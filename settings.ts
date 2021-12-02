@@ -14,8 +14,8 @@ export const addresses = {
 export const contractConfig = {
   mainnet: {
     intervalBlocks: 100,
-    bufferBlocks: 20,
-    minBetAmount: ethers.utils.parseUnits("1000", 5),
+    bufferBlocks: 30,
+    minBetAmount: ethers.utils.parseUnits("200", 5),
     oracleUpdateAllowance: 300,
   },
   testnet: {
