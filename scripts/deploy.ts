@@ -6,8 +6,6 @@ import { addresses, contractConfig } from "../settings";
 async function main() {
   const signers = await ethers.getSigners();
   let deployer: SignerWithAddress | undefined;
-  let admin: SignerWithAddress | undefined;
-  let operator: SignerWithAddress | undefined;
   let implAddr: string | undefined;
 
   // Check if necessary addresses provided in env
@@ -15,21 +13,9 @@ async function main() {
     if (a.address === process.env.DEPLOYER001) {
       deployer = a;
     }
-    if (a.address === process.env.ADMIN_ADDRESS) {
-      admin = a;
-    }
-    if (a.address === process.env.OPERATOR_ADDRESS) {
-      operator = a;
-    }
   });
   if (!deployer) {
     throw new Error(`${process.env.DEPLOYER001} not found in signers!`);
-  }
-  if (!admin) {
-    throw new Error(`${process.env.ADMIN_ADDRESS} not found in signers!`);
-  }
-  if (!operator) {
-    throw new Error(`${process.env.OPERATOR_ADDRESS} not found in signers!`);
   }
 
   console.log("Deploying contract with the account:", deployer.address);
