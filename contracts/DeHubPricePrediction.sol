@@ -120,7 +120,6 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
     minBetAmount = _minBetAmount;
     oracleUpdateAllowance = _oracleUpdateAllowance;
     reserveToken = _reserveToken;
-    pendingOracle = address(0);
   }
 
   modifier onlyAdmin() {
@@ -406,6 +405,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    */
   function updatePriceOracle() external onlyOperator {
     require(address(oracle) != address(pendingOracle), "Same oracle is in pending!");
+    require(address(oracle) != address(0), "Same oracle is in pending!");
     oracle = pendingOracle;
     pendingOracle = AggregatorV3Interface(address (0x0));
   }
@@ -463,7 +463,7 @@ contract DeHubPricePrediction is DeHubPricePredictionUpgradeable {
    * @dev called by the admin to unpause, returns to normal state
    * Reset genesis state. Once paused, the rounds would need to be kickstarted by genesis
    */
-  function unpause() public onlyAdmin whenPaused {
+  function unpause() public onlyAdminOrOperator whenPaused {
     genesisStartOnce = false;
     genesisLockOnce = false;
     _unpause();
