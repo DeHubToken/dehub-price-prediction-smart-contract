@@ -16,7 +16,7 @@ export const contractConfig = {
     intervalBlocks: 100,
     bufferBlocks: 30,
     minBetAmount: ethers.utils.parseUnits("200", 5),
-    oracleUpdateAllowance: 300,
+    oracleUpdateAllowance: 100,
   },
   testnet: {
     intervalBlocks: 100,
