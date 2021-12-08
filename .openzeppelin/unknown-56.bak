@@ -2,15 +2,15 @@
   "manifestVersion": "3.2",
   "proxies": [
     {
-      "address": "0xF73bee744210292973A51B1Cc4ef535519757dCc",
-      "txHash": "0xbbe6350f7044dad58559392a5343312b58b67e1ed15d257b8f8b93cc09cf4bfd",
+      "address": "0xC09411b2eA0aBd5532170585b3AbBF7d6A7c500b",
+      "txHash": "0x7e7183a87a0c20a60555ddf4ea447fa94e9932af94a10b1d041761cf2d10ae01",
       "kind": "uups"
     }
   ],
   "impls": {
-    "b4cd403c32cca0807e9c57a2facc144ca75f9fb0b1d07b21d1e83b75497de355": {
-      "address": "0x174435a4e2b414d4832C37390Af0cF813603814E",
-      "txHash": "0x5be970f4abfa1f85bf54d2b25547a5aaca4ab27729f281244d97c788f0cc0d43",
+    "d46a188b5483899fda4f0d2dbc0eed3a23761ec4df5f5491843f629c83ad6c50": {
+      "address": "0xa445f3370e40800BeB9A29526A72Cb37d74832b0",
+      "txHash": "0x311849df3b15b522e644350a745704dc8003857b804a95ecabd6af456b046b08",
       "layout": {
         "storage": [
           {
@@ -142,13 +142,13 @@
           {
             "contract": "DeHubPricePrediction",
             "label": "oracle",
-            "type": "t_contract(AggregatorV3Interface)3901",
+            "type": "t_contract(AggregatorV3Interface)3888",
             "src": "contracts/DeHubPricePrediction.sol:49"
           },
           {
             "contract": "DeHubPricePrediction",
             "label": "pendingOracle",
-            "type": "t_contract(AggregatorV3Interface)3901",
+            "type": "t_contract(AggregatorV3Interface)3888",
             "src": "contracts/DeHubPricePrediction.sol:50"
           },
           {
@@ -309,7 +309,7 @@
           "t_array(t_uint256)dyn_storage": {
             "label": "uint256[]"
           },
-          "t_contract(AggregatorV3Interface)3901": {
+          "t_contract(AggregatorV3Interface)3888": {
             "label": "contract AggregatorV3Interface"
           },
           "t_contract(IERC20Upgradeable)938": {
